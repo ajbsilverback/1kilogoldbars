@@ -381,7 +381,7 @@ export default function WhereToBuyPage() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://www.ebay.com/b/Kilo-Gold-Bars/39484/bn_7023291831"
+                  href="https://www.ebay.com/sch/i.html?_nkw=1+kilo+gold+bar"
                   target="_blank"
                   rel="nofollow"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
