@@ -362,23 +362,23 @@ export default function WhereToBuyPage() {
               </div>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://www.ebay.com/b/Kilo-Gold-Bars/39484/bn_7023291831"
+                  href="https://www.ebay.com/sch/i.html?_nkw=1+kilo+gold+bar"
                   target="_blank"
-                  rel="nofollow"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
-                  <span>eBay kilo gold bars</span>
+                  <span>eBay 1 kilo gold bar search</span>
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
                 <a
-                  href="https://www.ha.com/gold-platinum.s"
+                  href="https://www.ha.com/"
                   target="_blank"
-                  rel="nofollow"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
-                  <span>Heritage Auctions precious metals</span>
+                  <span>Heritage Auctions</span>
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -416,23 +416,23 @@ export default function WhereToBuyPage() {
               </p>
               <div className="flex flex-wrap gap-4">
                 <a
-                  href="https://www.brinks.com/en/services/global-services/precious-metals-services"
+                  href="https://www.brinks.com/"
                   target="_blank"
-                  rel="nofollow"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
-                  <span>Brink&apos;s precious metals services</span>
+                  <span>Brink&apos;s</span>
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
                 <a
-                  href="https://www.loomis.com/services/precious-metals-services"
+                  href="https://www.loomis.com/"
                   target="_blank"
-                  rel="nofollow"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
-                  <span>Loomis vault storage</span>
+                  <span>Loomis</span>
                   <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
@@ -464,7 +464,7 @@ export default function WhereToBuyPage() {
                   <a
                     href="https://www.monex.com/gold-prices/"
                     target="_blank"
-                    rel="noopener noreferrer nofollow"
+                    rel="noopener noreferrer"
                     className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors"
                   >
                     <span>Monex live gold prices</span>

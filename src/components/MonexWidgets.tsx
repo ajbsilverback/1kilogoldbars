@@ -27,7 +27,7 @@ export function GoldPriceChart() {
             <a
               href="https://www.monex.com/liveprices/"
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener noreferrer"
               className="text-bullion-gold hover:underline"
             >
               Monex
@@ -64,7 +64,7 @@ export function GoldPriceTable() {
             <a
               href="https://www.monex.com/liveprices/"
               target="_blank"
-              rel="noopener noreferrer nofollow"
+              rel="noopener noreferrer"
               className="text-bullion-gold hover:underline"
             >
               Monex

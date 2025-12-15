@@ -128,7 +128,7 @@ export default async function LiveGoldSpotIndexCard() {
         <a
           href="https://www.monex.com/liveprices/"
           target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="noopener noreferrer"
           className="text-bullion-gold hover:underline"
         >
           Monex

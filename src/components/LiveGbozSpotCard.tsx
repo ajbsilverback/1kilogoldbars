@@ -160,7 +160,7 @@ export default async function LiveGbozSpotCard({ showCta = true }: LiveGbozSpotC
         <a
           href="https://www.monex.com/liveprices/"
           target="_blank"
-          rel="noopener noreferrer nofollow"
+          rel="noopener noreferrer"
           className="text-bullion-gold hover:underline"
         >
           Monex

@@ -46,7 +46,7 @@ export const resources: Resource[] = [
     excerpt:
       "Learn the differences between PAMP Suisse, Valcambi, Perth Mint, Argor-Heraeus, and other top kilo bar producers.",
     category: "Products",
-    monexLink: "https://www.monex.com/gold/",
+    monexLink: "https://www.monex.com/investing-in-gold/",
   },
   {
     slug: "liquidity-considerations",
@@ -56,7 +56,7 @@ export const resources: Resource[] = [
     excerpt:
       "Explore the liquidity dynamics of kilo gold bars and strategies for efficient buying and selling.",
     category: "Investment",
-    monexLink: "https://www.monex.com/gold/",
+    monexLink: "https://www.monex.com/1-kilo-gold-bars-for-sale/",
   },
   {
     slug: "market-dynamics",
@@ -116,7 +116,7 @@ export const resources: Resource[] = [
     excerpt:
       "Learn what to expect when purchasing your first 1 kilo gold bar, from choosing a dealer to taking delivery.",
     category: "Buying Guide",
-    monexLink: "https://www.monex.com/gold/",
+    monexLink: "https://www.monex.com/1-kilo-gold-bars-for-sale/",
   },
   {
     slug: "tax-considerations",

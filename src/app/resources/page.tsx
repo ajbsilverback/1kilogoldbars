@@ -176,7 +176,7 @@ export default async function ResourcesPage({ searchParams }: PageProps) {
               return (
                 <Link
                   key={category}
-                  href={`/resources?category=${categorySlug}`}
+                  href={`/resources?category=${encodeURIComponent(categorySlug)}`}
                   className={`px-4 py-2 rounded-full font-medium text-sm transition-colors ${
                     isActive
                       ? "bg-bullion-gold text-black"

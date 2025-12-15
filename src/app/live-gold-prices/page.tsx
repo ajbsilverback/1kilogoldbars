@@ -248,7 +248,7 @@ export default async function PricesPage() {
           <a
             href="https://www.monex.com/gold-prices/"
             target="_blank"
-            rel="noopener noreferrer nofollow"
+            rel="noopener noreferrer"
             className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors"
           >
             <span>Research gold prices at Monex</span>

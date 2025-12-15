@@ -5,7 +5,7 @@ import QASection from "@/components/QASection";
 import LiveGbozSpotCard from "@/components/LiveGbozSpotCard";
 import CapitalRequirementsCard from "@/components/CapitalRequirementsCard";
 import { homeQA } from "@/data/qa-content";
-import { fetchProductSpot } from "@/lib/monexSpot";
+import { fetchProductSpot, formatUSD } from "@/lib/monexSpot";
 
 export default async function HomePage() {
   // Fetch price data once for the entire page
@@ -346,9 +346,27 @@ export default async function HomePage() {
                 </tr>
                 <tr className="border-b border-gray-800">
                   <td className="py-4 px-6 font-medium">Entry Cost</td>
-                  <td className="py-4 px-6 text-center">~$2,000</td>
-                  <td className="py-4 px-6 text-center">~$20,000</td>
-                  <td className="py-4 px-6 text-center">~$65,000</td>
+                  <td className="py-4 px-6 text-center">
+                    {priceData ? (
+                      <>~{formatUSD(Math.round((priceData.ask / SITE_CONFIG.troyOunces) * 1.03))}</>
+                    ) : (
+                      "~$2,700"
+                    )}
+                  </td>
+                  <td className="py-4 px-6 text-center">
+                    {priceData ? (
+                      <>~{formatUSD(Math.round((priceData.ask / SITE_CONFIG.troyOunces) * 10 * 1.01))}</>
+                    ) : (
+                      "~$27,000"
+                    )}
+                  </td>
+                  <td className="py-4 px-6 text-center">
+                    {priceData ? (
+                      <>~{formatUSD(Math.round(priceData.ask))}</>
+                    ) : (
+                      "~$87,000"
+                    )}
+                  </td>
                 </tr>
                 <tr className="border-b border-gray-800">
                   <td className="py-4 px-6 font-medium">Divisibility</td>
