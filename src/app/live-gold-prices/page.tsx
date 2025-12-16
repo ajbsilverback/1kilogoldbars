@@ -7,7 +7,7 @@ import QASection from "@/components/QASection";
 import LiveGbozSpotCard from "@/components/LiveGbozSpotCard";
 import LiveGoldSpotIndexCard from "@/components/LiveGoldSpotIndexCard";
 import { pricesQA } from "@/data/qa-content";
-import { fetchProductSpot } from "@/lib/monexSpot";
+import { fetchProductSpot, fetchMetalSpotIndex } from "@/lib/monexSpot";
 
 export const metadata: Metadata = {
   title: "1 Kilo Gold Bar Price & Live Gold Spot Prices",
@@ -27,6 +27,18 @@ export const metadata: Metadata = {
 export default async function PricesPage() {
   // Fetch price data once for the entire page
   const priceData = await fetchProductSpot();
+  const spotIndexData = await fetchMetalSpotIndex();
+  
+  // Format spot price for display
+  const spotPricePerOz = spotIndexData?.ask ?? 2700;
+  const formattedSpotPrice = `$${Math.round(spotPricePerOz).toLocaleString("en-US")}`;
+  
+  // Calculate example prices based on live spot
+  const oneOzBarsTotal = Math.round(spotPricePerOz * 32 * 1.05); // 5% premium
+  const mixedBarsTotal = Math.round(spotPricePerOz * 32 * 1.03); // 3% avg premium
+  const kiloBarsTotal = Math.round(spotPricePerOz * 32.1507 * 1.02); // 2% premium
+  const savings = oneOzBarsTotal - kiloBarsTotal;
+
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -219,14 +231,14 @@ export default async function PricesPage() {
                 </p>
                 <div className="bg-bullion-darker/50 rounded-lg p-4">
                   <p className="text-gray-400 text-sm mb-2">
-                    <strong className="text-bullion-gold">Example at $2,000/oz spot:</strong>
+                    <strong className="text-bullion-gold">Example at {formattedSpotPrice}/oz spot:</strong>
                   </p>
                   <ul className="text-gray-400 text-sm space-y-2">
-                    <li>• <strong className="text-white">32 × 1 oz bars (5% avg premium):</strong> ~$67,500</li>
-                    <li>• <strong className="text-white">3 × 10 oz bars + 2 × 1 oz (3% avg):</strong> ~$66,200</li>
-                    <li>• <strong className="text-white">1 × kilo bar (2% premium):</strong> ~$65,600</li>
+                    <li>• <strong className="text-white">32 × 1 oz bars (5% avg premium):</strong> ~${oneOzBarsTotal.toLocaleString("en-US")}</li>
+                    <li>• <strong className="text-white">3 × 10 oz bars + 2 × 1 oz (3% avg):</strong> ~${mixedBarsTotal.toLocaleString("en-US")}</li>
+                    <li>• <strong className="text-white">1 × kilo bar (2% premium):</strong> ~${kiloBarsTotal.toLocaleString("en-US")}</li>
                     <li className="pt-2 border-t border-bullion-gold/20">
-                      <strong className="text-bullion-gold">Savings:</strong> ~$1,900 by choosing kilo over 1 oz bars
+                      <strong className="text-bullion-gold">Savings:</strong> ~${savings.toLocaleString("en-US")} by choosing kilo over 1 oz bars
                     </li>
                   </ul>
                 </div>
