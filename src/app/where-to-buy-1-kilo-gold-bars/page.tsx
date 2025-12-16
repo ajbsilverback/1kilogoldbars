@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_CONFIG } from "@/lib/siteConfig";
+import { fetchProductSpot } from "@/lib/monexSpot";
 
 export const metadata: Metadata = {
   title: "Where to Buy 1 Kilo Gold Bars | Independent Buying Guide",
@@ -76,7 +77,12 @@ const onlineDealers = [
   },
 ];
 
-export default function WhereToBuyPage() {
+export default async function WhereToBuyPage() {
+  const priceData = await fetchProductSpot();
+  const formattedPrice = priceData 
+    ? `$${Math.round(priceData.ask).toLocaleString("en-US")}` 
+    : "$85,000";
+
   const webPageSchema = {
     "@context": "https://schema.org",
     "@type": "WebPage",
@@ -199,7 +205,7 @@ export default function WhereToBuyPage() {
                 </h3>
                 <p className="text-gray-400 text-sm">
                   Understand shipping costs, delivery times, and insurance
-                  coverage. For kilo bars worth $65,000+, fully insured
+                  coverage. For kilo bars worth {formattedPrice}+, fully insured
                   shipping is essential.
                 </p>
               </div>
@@ -383,7 +389,7 @@ export default function WhereToBuyPage() {
                 <a
                   href="https://www.ebay.com/sch/i.html?_nkw=1+kilo+gold+bar"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
                   <span>eBay 1 kilo gold bar search</span>
@@ -394,7 +400,7 @@ export default function WhereToBuyPage() {
                 <a
                   href="https://www.ha.com/"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
                   <span>Heritage Auctions</span>
@@ -437,7 +443,7 @@ export default function WhereToBuyPage() {
                 <a
                   href="https://www.brinks.com/"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
                   <span>Brink&apos;s</span>
@@ -448,7 +454,7 @@ export default function WhereToBuyPage() {
                 <a
                   href="https://www.loomis.com/"
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="nofollow noopener noreferrer"
                   className="inline-flex items-center text-bullion-gold hover:text-bullion-goldLight transition-colors text-sm"
                 >
                   <span>Loomis</span>

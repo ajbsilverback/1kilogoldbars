@@ -348,21 +348,21 @@ export default async function HomePage() {
                   <td className="py-4 px-6 font-medium">Entry Cost</td>
                   <td className="py-4 px-6 text-center">
                     {priceData ? (
-                      <>~{formatUSD(Math.round((priceData.ask / SITE_CONFIG.troyOunces) * 1.03))}</>
+                      <>~${Math.round((priceData.ask / SITE_CONFIG.troyOunces) * 1.03).toLocaleString("en-US")}</>
                     ) : (
                       "~$2,700"
                     )}
                   </td>
                   <td className="py-4 px-6 text-center">
                     {priceData ? (
-                      <>~{formatUSD(Math.round((priceData.ask / SITE_CONFIG.troyOunces) * 10 * 1.01))}</>
+                      <>~${Math.round((priceData.ask / SITE_CONFIG.troyOunces) * 10 * 1.01).toLocaleString("en-US")}</>
                     ) : (
                       "~$27,000"
                     )}
                   </td>
                   <td className="py-4 px-6 text-center">
                     {priceData ? (
-                      <>~{formatUSD(Math.round(priceData.ask))}</>
+                      <>~${Math.round(priceData.ask).toLocaleString("en-US")}</>
                     ) : (
                       "~$87,000"
                     )}
@@ -438,7 +438,7 @@ export default async function HomePage() {
               <p className="text-gray-400 mb-4">
                 Unlike holding multiple small bars, you cannot partially 
                 liquidate a kilo bar. When you sell, you&apos;re converting 
-                approximately $65,000+ to cash at once. This may exceed 
+                approximately {priceData ? `$${Math.round(priceData.ask).toLocaleString("en-US")}` : "$85,000"}+ to cash at once. This may exceed 
                 your actual needs or create tax timing challenges.
               </p>
               <p className="text-gray-500 text-sm">

@@ -61,7 +61,7 @@ const articleContents: Record<string, ArticleContent> = {
   },
   "size-comparison": {
     keyTakeaways: [
-      "Kilo bars offer the lowest premiums but require $65,000+ capital commitment",
+      "Kilo bars offer the lowest premiums but require {{KILO_PRICE}}+ capital commitment",
       "1 oz bars maximize flexibility at the cost of higher premiums (3-8%)",
       "10 oz bars represent a middle ground suitable for mid-sized positions",
       "Many investors combine sizes to optimize both efficiency and flexibility",
@@ -105,7 +105,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "1 Kilo Gold Bars: Maximum Premium Efficiency",
         content: [
-          "The 1 kilogram (32.15 oz) gold bar represents the sweet spot for premium efficiency among retail investor products. At approximately $65,000-$80,000, kilo bars deliver the lowest retail premiums, typically just 1.5-3% over spot.",
+          "The 1 kilogram (32.15 oz) gold bar represents the sweet spot for premium efficiency among retail investor products. At approximately {{KILO_PRICE}}, kilo bars deliver the lowest retail premiums, typically just 1.5-3% over spot.",
           "Premium savings are meaningful at this scale. Compared to equivalent weight in 1 oz bars, a kilo bar might save $1,500-$3,000 in premiums on a single purchase. For investors building substantial positions, these savings compound significantly over time.",
           "Kilo bars are the standard for institutional gold trading in many markets, ensuring deep liquidity and efficient pricing. LBMA-accredited kilo bars are accepted at banks and dealers worldwide.",
         ],
@@ -127,7 +127,7 @@ const articleContents: Record<string, ArticleContent> = {
   },
   "storage-options": {
     keyTakeaways: [
-      "Professional vault storage is recommended for kilo bars given their $65,000+ value",
+      "Professional vault storage is recommended for kilo bars given their {{KILO_PRICE}}+ value",
       "Allocated storage segregates your specific bars with unique serial numbers",
       "Vault storage typically costs 0.5-1% of value annually",
       "Home storage requires significant security investment for adequate protection",
@@ -137,7 +137,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "The Importance of Proper Kilo Bar Storage",
         content: [
-          "Owning 1 kilo gold bars comes with significant storage responsibility. With individual bars valued at $65,000 or more, appropriate security is not optional; it is essential. Your storage choice directly impacts both the security of your investment and your ability to access it when needed.",
+          "Owning 1 kilo gold bars comes with significant storage responsibility. With individual bars valued at {{KILO_PRICE}} or more, appropriate security is not optional; it is essential. Your storage choice directly impacts both the security of your investment and your ability to access it when needed.",
           "Unlike smaller bars that might reasonably be stored at home, the value concentration of kilo bars typically argues for professional solutions. A few kilo bars representing several hundred thousand dollars warrants institutional-grade protection.",
           "Your storage decision should reflect your total holdings value, access requirements, insurance considerations, and tolerance for various risks. Each option presents trade-offs worth understanding thoroughly before committing capital.",
         ],
@@ -248,7 +248,7 @@ const articleContents: Record<string, ArticleContent> = {
         heading: "Understanding Kilo Bar Liquidity",
         content: [
           "Liquidity describes how quickly and easily an asset can be converted to cash without significantly affecting its price. For gold investors, liquidity is crucial. An illiquid asset fails as a financial instrument if you cannot access its value when needed.",
-          "Kilo gold bars are less liquid than smaller denominations. The ~$65,000 capital requirement limits the buyer pool to serious investors, institutions, and dealers. Fewer potential buyers means potentially longer sale timelines.",
+          "Kilo gold bars are less liquid than smaller denominations. The ~{{KILO_PRICE}} capital requirement limits the buyer pool to serious investors, institutions, and dealers. Fewer potential buyers means potentially longer sale timelines.",
           "However, 'less liquid' doesn't mean illiquid. LBMA-accredited kilo bars from recognized refiners trade actively worldwide. Established dealers maintain ready markets, and transactions typically complete within days, not weeks.",
         ],
       },
@@ -268,7 +268,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "The Partial Liquidation Challenge",
         content: [
-          "The primary liquidity limitation of kilo bars is indivisibility. If you own one kilo bar and need $20,000 in cash, you must sell the entire bar (worth ~$65,000) or find alternative liquidity sources. This all-or-nothing dynamic requires planning.",
+          "The primary liquidity limitation of kilo bars is indivisibility. If you own one kilo bar and need $20,000 in cash, you must sell the entire bar (worth ~{{KILO_PRICE}}) or find alternative liquidity sources. This all-or-nothing dynamic requires planning.",
           "Investors anticipating potential partial liquidation needs should consider holding some smaller bars alongside kilo bars. A common approach: maintain core long-term holdings in kilo bars for premium efficiency, with a reserve of 1 oz or 10 oz bars for flexibility.",
           "Estate planning considerations also favor divisibility. Kilo bars create challenges for dividing gold among multiple heirs, while smaller denominations simplify equitable distribution.",
         ],
@@ -355,14 +355,14 @@ const articleContents: Record<string, ArticleContent> = {
         subheading: "Spread Comparison Across Bar Sizes",
         subcontent: [
           "Kilo bars typically have the tightest percentage spreads of common bar sizes. The fixed costs of each transaction spread across more value, improving economics. A kilo bar at 1.5% spread versus a 1 oz bar at 4% spread represents significantly better transaction efficiency.",
-          "However, remember the all-or-nothing nature of kilo transactions. You may face tighter spreads, but you're transacting ~$65,000 at once rather than having the option to sell smaller amounts.",
+          "However, remember the all-or-nothing nature of kilo transactions. You may face tighter spreads, but you're transacting ~{{KILO_PRICE}} at once rather than having the option to sell smaller amounts.",
         ],
       },
       {
         heading: "Calculating Your Break-Even",
         content: [
           "Before purchasing, calculate the price appreciation required to break even after accounting for the full spread. If you pay 2% over spot and expect to receive 1% below spot when selling, you need 3% appreciation to break even.",
-          "For a kilo bar at $65,000, that 3% break-even represents roughly $1,950 in gold price movement. Compare this to 1 oz bars where purchase premium plus selling discount might require 7-8% appreciation to break even.",
+          "For a kilo bar at {{KILO_PRICE}}, that 3% break-even represents roughly $2,600 in gold price movement. Compare this to 1 oz bars where purchase premium plus selling discount might require 7-8% appreciation to break even.",
           "This calculation helps set realistic expectations. Kilo bars' tighter spreads mean faster break-even compared to smaller bars, making them more efficient for medium-term as well as long-term holdings.",
         ],
         subheading: "Strategies to Minimize Spread Impact",
@@ -385,7 +385,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "Why Authentication Matters for Kilo Bars",
         content: [
-          "With individual bars valued at $65,000+, authentication is critical for kilo gold purchases. Counterfeiting risk increases with bar value, making verification essential before committing significant capital.",
+          "With individual bars valued at {{KILO_PRICE}}+, authentication is critical for kilo gold purchases. Counterfeiting risk increases with bar value, making verification essential before committing significant capital.",
           "The good news: LBMA-accredited refiners invest heavily in anti-counterfeiting measures. Their kilo bars include security features that make sophisticated counterfeits difficult and expensive to produce.",
           "For legitimate purchases from reputable dealers, authentication concerns are minimal. The risk increases when buying from unknown sources, secondary markets, or bars with incomplete documentation.",
         ],
@@ -413,7 +413,7 @@ const articleContents: Record<string, ArticleContent> = {
         subheading: "Red Flags to Watch For",
         subcontent: [
           "Be alert to: prices significantly below market (there are no legitimate 'discount' kilo bars), sellers unwilling to provide documentation, bars with visible inconsistencies in stamps or finish, and sellers pressuring quick decisions.",
-          "For purchases of this magnitude, patience is appropriate. Legitimate sellers understand that buyers want to verify before committing $65,000+. Any seller resistant to reasonable verification steps should be avoided.",
+          "For purchases of this magnitude, patience is appropriate. Legitimate sellers understand that buyers want to verify before committing {{KILO_PRICE}}+. Any seller resistant to reasonable verification steps should be avoided.",
         ],
       },
     ],

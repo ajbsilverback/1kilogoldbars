@@ -64,6 +64,11 @@ function getMonexAnchorText(slug: string): string {
   return anchorTextMap[slug] || "Monex gold resources";
 }
 
+// Replace price tokens in content strings
+function replacePriceTokens(text: string, kiloPrice: string): string {
+  return text.replace(/\{\{KILO_PRICE\}\}/g, kiloPrice);
+}
+
 // Generate AI summary bullets based on resource content
 function generateAISummaryBullets(slug: string, title: string): string[] {
   const summaryMap: Record<string, string[]> = {
@@ -174,8 +179,11 @@ export default async function ResourcePage({ params }: Props) {
   const qa = resourceQA[slug] || [];
   const aiSummaryBullets = generateAISummaryBullets(slug, resource.title);
   
-  // Fetch price data for dynamic FAQ tokens
+  // Fetch price data for dynamic FAQ tokens and article content
   const priceData = await fetchProductSpot();
+  const formattedKiloPrice = priceData 
+    ? `$${Math.round(priceData.ask).toLocaleString("en-US")}` 
+    : "$85,000";
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -267,7 +275,7 @@ export default async function ResourcePage({ params }: Props) {
               {content.keyTakeaways.map((takeaway, index) => (
                 <li key={index} className="flex items-start text-gray-300 text-sm md:text-base">
                   <span className="text-bullion-gold mr-2 mt-0.5">•</span>
-                  <span>{takeaway}</span>
+                  <span>{replacePriceTokens(takeaway, formattedKiloPrice)}</span>
                 </li>
               ))}
             </ul>
@@ -289,7 +297,7 @@ export default async function ResourcePage({ params }: Props) {
                     key={pIndex}
                     className="text-gray-300 leading-relaxed text-base md:text-lg"
                   >
-                    {paragraph}
+                    {replacePriceTokens(paragraph, formattedKiloPrice)}
                   </p>
                 ))}
                 {section.subheading && (
@@ -302,7 +310,7 @@ export default async function ResourcePage({ params }: Props) {
                         key={sIndex}
                         className="text-gray-300 leading-relaxed text-base md:text-lg"
                       >
-                        {paragraph}
+                        {replacePriceTokens(paragraph, formattedKiloPrice)}
                       </p>
                     ))}
                   </div>
