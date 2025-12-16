@@ -172,7 +172,7 @@ export const resourceQA: Record<string, QAItem[]> = {
     },
     {
       question: "How do I calculate my break-even point on a kilo bar?",
-      answer: "Add your purchase premium to the expected selling discount. If you pay 2% over spot and expect to receive 1% below spot when selling, you need 3% gold appreciation to break even. On a {{CAPITAL_REQUIREMENT}} kilo bar, that is roughly $2,000-$4,000 in gold price movement, more achievable than the 7-8% break-even typical of 1 oz bars.",
+      answer: "Add your purchase premium to the expected selling discount. If you pay 2% over spot and expect to receive 1% below spot when selling, you need 3% gold appreciation to break even. On a {{CAPITAL_REQUIREMENT}} kilo bar, that is roughly {{BREAKEVEN_AMOUNT}} in gold price movement, more achievable than the 7-8% break-even typical of 1 oz bars.",
     },
     {
       question: "Do spreads vary by kilo bar brand?",

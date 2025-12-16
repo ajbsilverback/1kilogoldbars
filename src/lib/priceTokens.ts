@@ -54,13 +54,26 @@ export type PriceTokenType =
   | "CAPITAL_REQUIREMENT"           // ~$132,500 (ask price rounded)
   | "CAPITAL_REQUIREMENT_RANGE"     // ~$126,000–$139,000 (ask ± premium band)
   | "CAPITAL_REQUIREMENT_PLUS"      // ~$132,500+ (ask rounded with plus)
-  | "LIQUIDITY_THRESHOLD";          // ~$132,500+ (same as plus, for liquidity context)
+  | "LIQUIDITY_THRESHOLD"           // ~$132,500+ (same as plus, for liquidity context)
+  | "KILO_PRICE"                    // ~$87,000 (kilo bar ask price)
+  | "SPOT_PRICE"                    // ~$2,700 (spot price per oz)
+  | "ONE_OZ_PRICE"                  // ~$2,800 (1 oz bar at ~5% premium)
+  | "ONE_OZ_PRICE_RANGE"            // ~$2,700–$2,900 (1 oz price range)
+  | "TEN_OZ_PRICE"                  // ~$28,000 (10 oz bar at ~3% premium)
+  | "TEN_OZ_PRICE_RANGE"            // ~$27,000–$29,000 (10 oz price range)
+  | "BREAKEVEN_AMOUNT"              // ~$2,600 (3% of kilo price for break-even)
+  | "MULTI_KILO_VALUE";             // ~$260,000 (3 kilo bars value)
 
 /**
  * Regex pattern to match tokens in strings
  * Matches: {{TOKEN_NAME}}
  */
-const TOKEN_PATTERN = /\{\{(CAPITAL_REQUIREMENT|CAPITAL_REQUIREMENT_RANGE|CAPITAL_REQUIREMENT_PLUS|LIQUIDITY_THRESHOLD)\}\}/g;
+const TOKEN_PATTERN = /\{\{(CAPITAL_REQUIREMENT|CAPITAL_REQUIREMENT_RANGE|CAPITAL_REQUIREMENT_PLUS|LIQUIDITY_THRESHOLD|KILO_PRICE|SPOT_PRICE|ONE_OZ_PRICE|ONE_OZ_PRICE_RANGE|TEN_OZ_PRICE|TEN_OZ_PRICE_RANGE|BREAKEVEN_AMOUNT|MULTI_KILO_VALUE)\}\}/g;
+
+/**
+ * Troy ounces in a kilo bar
+ */
+const TROY_OUNCES_PER_KILO = 32.1507;
 
 /**
  * Resolves a single token to its display value
@@ -77,11 +90,16 @@ export function resolveToken(
     return "current market price";
   }
 
-  const askPrice = priceData.ask;
+  const askPrice = priceData.ask; // Kilo bar ask price
   const roundedAsk = roundToNearest(askPrice, roundingIncrement);
+  
+  // Derive spot price per oz from kilo bar price (removing ~2% premium)
+  const spotPricePerOz = askPrice / TROY_OUNCES_PER_KILO / 1.02;
+  const roundedSpot = roundToNearest(spotPricePerOz, 50); // Round to nearest $50
 
   switch (tokenType) {
     case "CAPITAL_REQUIREMENT":
+    case "KILO_PRICE":
       return formatPrice(roundedAsk);
 
     case "CAPITAL_REQUIREMENT_RANGE": {
@@ -93,6 +111,47 @@ export function resolveToken(
     case "CAPITAL_REQUIREMENT_PLUS":
     case "LIQUIDITY_THRESHOLD":
       return `${formatPrice(roundedAsk)}+`;
+
+    case "SPOT_PRICE":
+      return formatPrice(roundedSpot);
+
+    case "ONE_OZ_PRICE": {
+      // 1 oz bar at ~5% premium
+      const oneOzPrice = roundToNearest(spotPricePerOz * 1.05, 50);
+      return formatPrice(oneOzPrice);
+    }
+
+    case "ONE_OZ_PRICE_RANGE": {
+      // 1 oz bars typically range from spot+3% to spot+8%
+      const oneOzLow = roundToNearest(spotPricePerOz * 1.03, 50);
+      const oneOzHigh = roundToNearest(spotPricePerOz * 1.08, 50);
+      return `${formatPrice(oneOzLow)}–${formatPrice(oneOzHigh).replace("~", "")}`;
+    }
+
+    case "TEN_OZ_PRICE": {
+      // 10 oz bar at ~3% premium
+      const tenOzPrice = roundToNearest(spotPricePerOz * 10 * 1.03, 100);
+      return formatPrice(tenOzPrice);
+    }
+
+    case "TEN_OZ_PRICE_RANGE": {
+      // 10 oz bars typically range from spot+2% to spot+4%
+      const tenOzLow = roundToNearest(spotPricePerOz * 10 * 1.02, 100);
+      const tenOzHigh = roundToNearest(spotPricePerOz * 10 * 1.04, 100);
+      return `${formatPrice(tenOzLow)}–${formatPrice(tenOzHigh).replace("~", "")}`;
+    }
+
+    case "BREAKEVEN_AMOUNT": {
+      // 3% of kilo price for break-even calculation
+      const breakeven = roundToNearest(askPrice * 0.03, 100);
+      return formatPrice(breakeven);
+    }
+
+    case "MULTI_KILO_VALUE": {
+      // Value of 3 kilo bars (for "a few kilo bars" references)
+      const multiValue = roundToNearest(askPrice * 3, 1000);
+      return formatPrice(multiValue) + "+";
+    }
 
     default:
       return "current market price";

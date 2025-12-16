@@ -23,7 +23,7 @@ const articleContents: Record<string, ArticleContent> = {
         content: [
           "When purchasing gold bars, you pay a premium above the spot price of gold. This premium covers refining, minting, assaying, distribution, and dealer margins. For 1 kilo gold bars, these premiums are remarkably low, typically just 1.5-3% above spot price under normal market conditions.",
           "The economics are straightforward: producing one kilo bar (32.15 oz) is vastly more efficient than producing 32 individual 1 oz bars with equivalent total gold content. The refining process is the same, but minting, packaging, handling, and distribution costs are incurred once rather than 32 times.",
-          "This efficiency translates directly to savings for investors. At $2,000/oz spot, a kilo bar at 2% premium costs approximately $65,600. The same gold content purchased as 1 oz bars at 5% average premium would cost around $67,500, a difference of nearly $2,000 on a single purchase.",
+          "This efficiency translates directly to savings for investors. At {{SPOT_PRICE}}/oz spot, a kilo bar at 2% premium costs approximately {{KILO_PRICE}}. The same gold content purchased as 1 oz bars at 5% average premium would cost significantly more. The difference represents substantial savings on a single purchase.",
         ],
         subheading: "Components of Kilo Bar Premiums",
         subcontent: [
@@ -79,7 +79,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "1 Oz Gold Bars: Maximum Flexibility",
         content: [
-          "The 1 oz gold bar is the standard unit for individual precious metals investors worldwide. At approximately $2,000-$2,500, it's accessible to the broadest range of buyers, ensuring robust liquidity when you're ready to sell.",
+          "The 1 oz gold bar is the standard unit for individual precious metals investors worldwide. At approximately {{ONE_OZ_PRICE_RANGE}}, it's accessible to the broadest range of buyers, ensuring robust liquidity when you're ready to sell.",
           "Premiums on 1 oz bars typically range from 3-8% over spot, the highest of common bar sizes. This premium reflects the increased per-unit manufacturing cost and the dealer economics of handling many individual units.",
           "The key advantage is flexibility: you can sell precisely the amount you need. If you require $5,000, you can sell two or three 1 oz bars while maintaining the rest of your position. With kilo bars, partial liquidation isn't possible.",
         ],
@@ -92,13 +92,13 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "10 Oz Gold Bars: The Middle Ground",
         content: [
-          "Ten-ounce gold bars occupy the middle ground between premium efficiency and practical liquidity. At roughly $20,000-$25,000 per bar, they require meaningful capital but remain accessible to serious individual investors.",
+          "Ten-ounce gold bars occupy the middle ground between premium efficiency and practical liquidity. At roughly {{TEN_OZ_PRICE_RANGE}} per bar, they require meaningful capital but remain accessible to serious individual investors.",
           "Premiums typically fall in the 2-4% range, notably lower than 1 oz bars. An investor purchasing 100 oz of gold saves hundreds to thousands of dollars by choosing 10 oz bars over 1 oz equivalents.",
           "Liquidity remains good for 10 oz bars, though the buyer pool is smaller than for 1 oz products. Most established dealers maintain ready markets, and transactions typically complete efficiently.",
         ],
         subheading: "Considerations for 10 oz Purchases",
         subcontent: [
-          "The 10 oz size represents a reasonable compromise for investors with $50,000-$200,000 to allocate to gold. You capture meaningful premium savings while maintaining reasonable divisibility, allowing you to liquidate in $20,000 increments.",
+          "The 10 oz size represents a reasonable compromise for investors with $50,000-$200,000 to allocate to gold. You capture meaningful premium savings while maintaining reasonable divisibility, allowing you to liquidate in {{TEN_OZ_PRICE}} increments.",
           "For investors who might eventually upgrade to kilo bars, 10 oz bars can serve as a transition step, providing experience with the gold market before committing to the larger capital requirements of kilo bars.",
         ],
       },
@@ -171,7 +171,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "Home Storage Considerations",
         content: [
-          "Home storage of kilo bars is possible but requires substantial security investment to be reasonable. A few kilo bars can easily represent $200,000+ in value, which warrants serious protection beyond a basic gun safe.",
+          "Home storage of kilo bars is possible but requires substantial security investment to be reasonable. A few kilo bars can easily represent {{MULTI_KILO_VALUE}} in value, which warrants serious protection beyond a basic gun safe.",
           "For meaningful home security, consider: UL TL-30 rated safes (or higher) designed to resist sophisticated attacks, safe weight exceeding 1,000 pounds or permanent anchoring to concrete, monitored security systems, and fire protection for the safe location.",
           "A quality safe meeting these specifications costs $5,000-$15,000. Add installation, security monitoring, and insurance premiums, and the economics often favor professional storage for kilo bar holdings.",
         ],
@@ -362,7 +362,7 @@ const articleContents: Record<string, ArticleContent> = {
         heading: "Calculating Your Break-Even",
         content: [
           "Before purchasing, calculate the price appreciation required to break even after accounting for the full spread. If you pay 2% over spot and expect to receive 1% below spot when selling, you need 3% appreciation to break even.",
-          "For a kilo bar at {{KILO_PRICE}}, that 3% break-even represents roughly $2,600 in gold price movement. Compare this to 1 oz bars where purchase premium plus selling discount might require 7-8% appreciation to break even.",
+          "For a kilo bar at {{KILO_PRICE}}, that 3% break-even represents roughly {{BREAKEVEN_AMOUNT}} in gold price movement. Compare this to 1 oz bars where purchase premium plus selling discount might require 7-8% appreciation to break even.",
           "This calculation helps set realistic expectations. Kilo bars' tighter spreads mean faster break-even compared to smaller bars, making them more efficient for medium-term as well as long-term holdings.",
         ],
         subheading: "Strategies to Minimize Spread Impact",
@@ -483,7 +483,7 @@ const articleContents: Record<string, ArticleContent> = {
       {
         heading: "Kilo Bars in Practice",
         content: [
-          "Consider an investor with a $2 million portfolio targeting 10% gold allocation ($200,000). This investor might hold 3 kilo bars as core holdings (~$195,000) plus a reserve of smaller bars for potential liquidity needs.",
+          "Consider an investor with a $2 million portfolio targeting 10% gold allocation ($200,000). This investor might hold 3 kilo bars as core holdings ({{MULTI_KILO_VALUE}}) plus a reserve of smaller bars for potential liquidity needs.",
           "The premium savings are meaningful. At 2% kilo premium versus 5% for equivalent 1 oz bars, the savings exceed $6,000. Over time, these savings compound as additional gold in the investor's holdings.",
           "For smaller portfolios, the calculation changes. A $500,000 portfolio with 10% gold allocation ($50,000) might find a single kilo bar represents too much concentration. Mixed smaller sizes might better serve flexibility needs.",
         ],
