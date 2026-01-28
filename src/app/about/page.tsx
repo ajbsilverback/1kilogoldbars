@@ -124,7 +124,7 @@ export default function AboutPage() {
                 <Link href="/live-gold-prices" className="text-bullion-gold hover:underline">
                   prices page
                 </Link>{" "}
-                are fetched from the Monex API. We display two price feeds:
+                are provided by Monex. We display two price feeds:
               </p>
               <ul className="space-y-2 text-gray-300 mb-4">
                 <li className="flex items-start gap-3">
