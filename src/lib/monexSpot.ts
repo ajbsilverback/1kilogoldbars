@@ -1,14 +1,14 @@
 /**
- * Server-side utility for fetching product spot price from Monex API
+ * Server-side utility for fetching product spot price from Monex pricing data
  * Fetches ONCE per page load - NO auto-refresh, NO intervals, NO polling, NO background revalidation
  */
 
 import { SITE_CONFIG, getProductApiUrl, getSpotApiUrl } from "./siteConfig";
 
 /**
- * TypeScript interface for Product Spot Summary from Monex API
+ * TypeScript interface for Product Spot Summary from Monex pricing data
  * 
- * API Response shape (data[0]):
+ * Response shape (data[0]):
  * {
  *   "symbol": "GBOZ",
  *   "baseCurrency": "USD",
@@ -42,7 +42,7 @@ export interface ProductSpotSummary {
 export type GbozSpotSummary = ProductSpotSummary;
 
 /**
- * Fetches the current product spot price from Monex API
+ * Fetches the current product spot price from Monex pricing data
  * Uses symbol from SITE_CONFIG.productSymbol
  * 
  * Uses cache: 'no-store' to ensure:
@@ -66,7 +66,7 @@ export async function fetchProductSpot(): Promise<ProductSpotSummary | null> {
 
     // If response.ok is false → return null
     if (!response.ok) {
-      console.error(`Monex API error: ${response.status} ${response.statusText}`);
+      console.error(`Pricing data error: ${response.status} ${response.statusText}`);
       return null;
     }
 
@@ -115,7 +115,7 @@ export async function fetchProductSpot(): Promise<ProductSpotSummary | null> {
     }
 
     if (!productData) {
-      console.error(`Monex API: Could not extract ${symbol} data from response`);
+      console.error(`Pricing data: Could not extract ${symbol} data from response`);
       return null;
     }
 
@@ -130,7 +130,7 @@ export async function fetchProductSpot(): Promise<ProductSpotSummary | null> {
     
     // Validate we have at least some price data
     if (bid === 0 && ask === 0 && last === 0) {
-      console.error("Monex API: No price data found in response");
+      console.error("Pricing data: No price data found in response");
       return null;
     }
 
@@ -209,7 +209,7 @@ export function formatChange(change: number, changePercent: number): string {
 // ============================================================
 
 /**
- * TypeScript interface for Metal Spot Index from Monex API
+ * TypeScript interface for Metal Spot Index from Monex pricing data
  */
 export interface MetalSpotIndexSummary {
   symbol: string;
@@ -231,7 +231,7 @@ export interface MetalSpotIndexSummary {
 export type GoldSpotIndexSummary = MetalSpotIndexSummary;
 
 /**
- * Fetches the current Metal Spot Index from Monex API
+ * Fetches the current Metal Spot Index from Monex pricing data
  * Uses symbol from SITE_CONFIG.spotSymbol
  * 
  * Uses cache: 'no-store' to ensure:
@@ -255,7 +255,7 @@ export async function fetchMetalSpotIndex(): Promise<MetalSpotIndexSummary | nul
     });
 
     if (!response.ok) {
-      console.error(`Monex API (${symbol}) error: ${response.status} ${response.statusText}`);
+      console.error(`Pricing data (${symbol}) error: ${response.status} ${response.statusText}`);
       return null;
     }
 
@@ -287,7 +287,7 @@ export async function fetchMetalSpotIndex(): Promise<MetalSpotIndexSummary | nul
     }
 
     if (!spotData) {
-      console.error(`Monex API: Could not extract ${symbol} data from response`);
+      console.error(`Pricing data: Could not extract ${symbol} data from response`);
       return null;
     }
 
@@ -301,7 +301,7 @@ export async function fetchMetalSpotIndex(): Promise<MetalSpotIndexSummary | nul
     const previousClose = Number(spotData.previousClose ?? spotData.PreviousClose ?? spotData.close ?? spotData.Close ?? 0);
 
     if (bid === 0 && ask === 0 && last === 0) {
-      console.error(`Monex API (${symbol}): No price data found in response`);
+      console.error(`Pricing data (${symbol}): No price data found in response`);
       return null;
     }
 

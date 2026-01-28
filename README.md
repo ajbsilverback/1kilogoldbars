@@ -75,16 +75,28 @@ src/
     └── article-content.ts  # Article content
 ```
 
-## API Configuration
+## Pricing Data Configuration
 
-This site uses the Monex API for pricing data:
+This site uses Monex pricing data for live gold prices.
+
+### Symbols
 
 - **Product Symbol**: GBX1K (1 kilo gold bar)
 - **Spot Symbol**: GBXSPOT (Gold spot index)
 
-API endpoints:
-- `https://api.monex.com/api/v2/Metals/spot/summary?metals=GBX1K`
-- `https://api.monex.com/api/v2/Metals/spot/summary?metals=GBXSPOT`
+### Environment Setup
+
+The pricing data base URL is configured via environment variable:
+
+**For Vercel deployment:**
+1. Go to your Vercel project → Settings → Environment Variables
+2. Add `MONEX_API_BASE_URL` with the pricing endpoint base URL
+3. Apply to Production and Preview environments
+
+**For local development:**
+1. Copy `.env.example` to `.env.local`
+2. Set `MONEX_API_BASE_URL` to the pricing endpoint base URL
+3. Never commit `.env.local` to git
 
 Prices are fetched once per page load (no polling/intervals).
 

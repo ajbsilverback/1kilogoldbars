@@ -38,17 +38,17 @@ export const SITE_CONFIG = {
   troyOunces: 32.1507,
 
   // ============================================================
-  // MONEX API SYMBOLS
+  // PRICING DATA SYMBOLS
   // ============================================================
   
   /** 
-   * Product price symbol for Monex API
+   * Product price symbol for Monex pricing data
    * GBX1K = 1 kilo gold bar
    */
   productSymbol: "GBX1K",
   
   /**
-   * Spot index symbol for Monex API (raw metal spot price)
+   * Spot index symbol for Monex pricing data (raw metal spot price)
    * GBXSPOT = Gold Spot Index
    */
   spotSymbol: "GBXSPOT",
@@ -73,15 +73,32 @@ export const SITE_CONFIG = {
 export type SiteConfig = typeof SITE_CONFIG;
 
 /**
- * Helper: Get Monex API URL for product symbol
+ * Helper: Get the pricing data base URL from environment variable.
+ * Throws an error if MONEX_API_BASE_URL is not set.
  */
-export function getProductApiUrl(): string {
-  return `https://api.monex.com/api/v2/Metals/spot/summary?metals=${SITE_CONFIG.productSymbol}`;
+function getPricingBaseUrl(): string {
+  const baseUrl = process.env.MONEX_API_BASE_URL;
+  if (!baseUrl) {
+    throw new Error(
+      "MONEX_API_BASE_URL environment variable is not set. " +
+      "Please set it in .env.local for local development or in Vercel environment variables for deployment."
+    );
+  }
+  return baseUrl.replace(/\/$/, ""); // Remove trailing slash if present
 }
 
 /**
- * Helper: Get Monex API URL for spot symbol
+ * Helper: Get pricing data URL for product symbol
+ */
+export function getProductApiUrl(): string {
+  const baseUrl = getPricingBaseUrl();
+  return `${baseUrl}/api/v2/Metals/spot/summary?metals=${SITE_CONFIG.productSymbol}`;
+}
+
+/**
+ * Helper: Get pricing data URL for spot symbol
  */
 export function getSpotApiUrl(): string {
-  return `https://api.monex.com/api/v2/Metals/spot/summary?metals=${SITE_CONFIG.spotSymbol}`;
+  const baseUrl = getPricingBaseUrl();
+  return `${baseUrl}/api/v2/Metals/spot/summary?metals=${SITE_CONFIG.spotSymbol}`;
 }
